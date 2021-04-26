@@ -64,14 +64,14 @@ class ExampleSpider(scrapy.Spider):
     def parse(self, response):
         # print(response.text)
 
-        # app_ip=json.loads(response.text)["data"]
-        # print(app_ip)
-        # li_list = response.xpath('//ul[@class="category-list"]/li')
-        # for li in li_list:
-        #     title = li.xpath("./a/text()").extract_first()
-        #     link = li.xpath("./a/@href").extract_first()
-        #     print(title)
-        #     print(link)
+        app_ip = json.loads(response.text)["data"]
+        print(app_ip)
+        li_list = response.xpath('//ul[@class="category-list"]/li')
+        for li in li_list:
+            title = li.xpath("./a/text()").extract_first()
+            link = li.xpath("./a/@href").extract_first()
+            print(title)
+            print(link)
         # pass
         # app_info_list_all = json.loads(response.text)["app"]
         # item['channel_name1'] = 'Tencent'
@@ -95,8 +95,8 @@ class ExampleSpider(scrapy.Spider):
 
         # app_info_list_all = response.text["layoutData"]["dataList"]
         # print(app_info_list_all)
-        with open('q.html', 'a', encoding='utf-8') as f:
-            f.write(response.text)
+        # with open('q.html', 'a', encoding='utf-8') as f:
+        #     f.write(response.text)
         # print(type(json.loads(response.text)))
 
         # li_list = response.xpath('//ul[@id="j-search-list"]/li')
